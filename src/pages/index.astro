@@ -1,9 +1,9 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Welcome to IhateNesha.com">
 	<main>
 		<svg
 			class="astro-a"
@@ -33,35 +33,145 @@ import Card from '../components/Card.astro';
 				</linearGradient>
 			</defs>
 		</svg>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
+		<div class="overflow-wrap">
+			<h1 class="text-5xl md:text-6xl text-center overflow-wrap">
+				Welcome to <span class="text-gradient">ihatenesha.com</span>
+			</h1>
+		</div>
+		<!-- TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com -->
+		<div class="flex flex-col">
+			<div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+				<div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+					<div class="overflow-hidden">
+						<table class="min-w-full text-left text-sm font-light">
+							<thead
+								class="border-b font-medium dark:border-neutral-500"
+							>
+								<tr>
+									<th scope="col" class="px-6 py-4">#</th>
+									<th scope="col" class="px-6 py-4">Name</th>
+									<th scope="col" class="px-6 py-4">Reason</th
+									>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="border-b dark:border-neutral-500">
+									<td
+										class="whitespace-nowrap px-6 py-4 font-medium"
+										>1</td
+									>
+									<td class="whitespace-nowrap px-6 py-4"
+										>Loser</td
+									>
+									<td class="whitespace-nowrap px-6 py-4"
+										>Nesha is old 👵🏾</td
+									>
+								</tr>
+								<tr class="border-b dark:border-neutral-500">
+									<td
+										class="whitespace-nowrap px-6 py-4 font-medium"
+										>2</td
+									>
+									<td class="whitespace-nowrap px-6 py-4"
+										>Goofy</td
+									>
+									<td class="whitespace-nowrap px-6 py-4"
+										>I don't know why, she just is</td
+									>
+								</tr>
+								<tr class="border-b dark:border-neutral-500">
+									<td
+										class="whitespace-nowrap px-6 py-4 font-medium"
+										>3</td
+									>
+									<td class="whitespace-nowrap px-6 py-4"
+										>DRIVING</td
+									>
+									<td class="whitespace-nowrap px-6 py-4"
+										>Nesha is a whore who can't drive</td
+									>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="text-center text-sm my-12">
+				You have 48 hours to respond if you are really the code barbie
+			</div>
+
+			<div class="container text-center">
+				<h1 id="headline">Time left </h1>
+				<div id="countdown">
+					<ul>
+						<li><span id="days"></span>days</li>
+						<li><span id="hours"></span>Hours</li>
+						<li><span id="minutes"></span>Minutes</li>
+						<li><span id="seconds"></span>Seconds</li>
+					</ul>
+				</div>
+				<div id="content" class="emoji">
+					<span>🥳</span>
+					<span>🎉</span>
+					<span>🎂</span>
+				</div>
+			</div>
+
+			<div class="text-center text-sm my-12">From Endia</div>
+		</div>
 	</main>
 </Layout>
+
+<script>
+	(function () {
+		const second = 1000,
+			minute = second * 60,
+			hour = minute * 60,
+			day = hour * 24;
+
+		let today: Date | string = new Date(),
+			dd = String(today.getDate()).padStart(2, "0"),
+			mm = String(today.getMonth() + 1).padStart(2, "0"),
+			yyyy = today.getFullYear(),
+			nextYear = yyyy + 1,
+			dayMonth = "12/15/",
+			birthday = dayMonth + yyyy;
+
+		today = mm + "/" + dd + "/" + yyyy;
+		if (today > birthday) {
+			birthday = dayMonth + nextYear;
+		}
+		//end
+
+		const countDown = new Date(birthday).getTime(),
+			x = setInterval(function () {
+				const now = new Date().getTime(),
+					distance = countDown - now;
+				(document.getElementById("days").innerText = Math.floor(
+					distance / day,
+				)),
+					(document.getElementById("hours").innerText = Math.floor(
+						(distance % day) / hour,
+					)),
+					(document.getElementById("minutes").innerText = Math.floor(
+						(distance % hour) / minute,
+					)),
+					(document.getElementById("seconds").innerText = Math.floor(
+						(distance % minute) / second,
+					));
+
+				//do something later when date is reached
+				if (distance < 0) {
+					document.getElementById("headline").innerText =
+						"You're late!";
+					document.getElementById("countdown").style.display = "none";
+					document.getElementById("content").style.display = "block";
+					clearInterval(x);
+				}
+				//seconds
+			}, 0);
+	})();
+</script>
 
 <style>
 	main {
@@ -82,13 +192,7 @@ import Card from '../components/Card.astro';
 		height: auto;
 		z-index: -1;
 	}
-	h1 {
-		font-size: 4rem;
-		font-weight: 700;
-		line-height: 1;
-		text-align: center;
-		margin-bottom: 1em;
-	}
+
 	.text-gradient {
 		background-image: var(--accent-gradient);
 		-webkit-background-clip: text;
@@ -99,7 +203,10 @@ import Card from '../components/Card.astro';
 	.instructions {
 		margin-bottom: 2rem;
 		border: 1px solid rgba(var(--accent-light), 25%);
-		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
+		background: linear-gradient(
+			rgba(var(--accent-dark), 66%),
+			rgba(var(--accent-dark), 33%)
+		);
 		padding: 1.5rem;
 		border-radius: 8px;
 	}
